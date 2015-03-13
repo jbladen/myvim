@@ -300,7 +300,9 @@ endfunction
 function! LineNumberToggle()
   if(&relativenumber == 1)
     set number
+    set norelativenumber
   else
+    set nonumber
     set relativenumber
   endif
 endfunc
@@ -308,10 +310,6 @@ endfunc
 "{{{ Toggle the arrow keys
 
 let g:arrow_keys_enabled = 1
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
 
 function! ArrowKeysToggle()
   if g:arrow_keys_enabled == 1
@@ -411,7 +409,7 @@ set nocursorline
 syntax sync minlines=256
 
 " Line numbers
-set relativenumber
+set number
 "}}}
 
 "Fugitive (Git) in status line
@@ -505,3 +503,4 @@ let NERDTreeIgnore = ['\.pyc$','\.sock$']
 
 let g:vdebug_features = {'max_depth':3}
 let g:tork_pre_command = "rvm use default@global > /dev/null"
+syntax on
